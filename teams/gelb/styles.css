@@ -1,0 +1,102 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #222
+  no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+header {
+  background-color: rgba(128, 128, 0, 0.8); /* Grün für Hauptseite */
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: left 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.sidebar a {
+  display: block;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar a:hover {
+  background-color: #222;
+}
+
+.toggle-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  font-size: 1rem;
+  background: #111;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+.content-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+input, button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+}
+
+.intro {
+  font-size: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+.intro h2 {
+  font-size: 4rem;
+  color: rgba(128, 128, 0, 1);
+  margin-bottom: 1rem;
+}
