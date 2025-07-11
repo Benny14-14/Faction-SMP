@@ -1,0 +1,98 @@
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faction SMP – Ablauf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleSidebar()">☰ Menü</button>
+
+  <div class="sidebar" id="sidebar">
+    <a href="../index.html">⭐ Startseite</a>
+    <a href="../regeln/index.html">📜 Regeln</a>
+    <a href="../events/index.html">🎉 Events</a>
+    <a href="../ablauf/index.html">📅 Ablaufplan</a>
+    <a href="../discord/index.html">💬 Discord</a>
+    <hr>
+    <a href="../teams/rot/index.html">🔴 Team Rot</a>
+    <a href="../teams/blau/index.html">🔵 Team Blau</a>
+    <a href="../teams/gelb/index.html">🟡 Team Gelb</a>
+  </div>
+
+  <header>
+<p>
+    <img src="../logo.png" alt="Faction SMP Logo" style="width: 100px; height: 100px;">
+    <h1> Faction SMP – Minecraft Java 1.20.1 </h1>
+</p>
+  </header>
+
+  <main>
+      <section class="intro">
+<h2>Projekt Ablauf</h2>
+
+  <ul style="text-align: left; max-width: 700px; margin: 0 auto; padding-left: 1.2rem;">
+
+    
+<li><p><strong>Projektstart:</strong> <span id="countdown-start">Lädt...</span></p></li>
+<li><p><strong>Inselpräsentation:</strong> <span id="countdown-event">Lädt...</span></p></li>
+<li><p><strong>Ende der Aufbauphase:</strong> <span id="countdown-aufbau">Lädt...</span></p></li>
+
+
+
+
+  </ul>
+</section>
+  </main>
+
+  <script src="../script.js"></script>
+<script>
+  const countdowns = [
+    {
+      id: "countdown-start",
+      date: new Date("2025-07-11T19:00:00"),
+      message: "Die Aufbauphase hat begonnen!   Die Teams haben nun Zeit, sich auszurüsten, Basen zu bauen und sich auf kommende Kämpfe vorzubereiten. In dieser Phase ist das Betreten anderer Inseln nicht möglich"
+    },
+    {
+      id: "countdown-event",
+      date: new Date("2025-07-18T17:59:00"),
+      message: " Die Teams haben 1 Stunde Zeit, ihre Insel zu präsentieren. Bewertet werden Kreativität, Aufbau und Gesamteindruck. Die schönste und beeindruckendste Insel erhält ein besonderes Item als Belohnung!"
+    },
+    {
+      id: "countdown-aufbau",
+      date: new Date("2025-07-18T18:59:00"),
+      message: "ab jetzt können alle Inseln betreten werden! PvP ist ab sofort aktiv. Achtet gut auf eure Leben, denn jedes zählt. Nur das stärkste und strategischste Team wird am Ende gewinnen!"
+    }
+  ];
+
+  function updateCountdowns() {
+    const now = new Date();
+
+    countdowns.forEach(c => {
+      const timeLeft = c.date - now;
+      const el = document.getElementById(c.id);
+
+      if (!el) return;
+
+      if (timeLeft <= 0) {
+        el.textContent = c.message;
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+      const seconds = Math.floor((timeLeft / 1000) % 60);
+
+      el.textContent = `${days} Tage, ${hours} Std, ${minutes} Min, ${seconds} Sek`;
+    });
+  }
+
+  updateCountdowns(); // Sofort anzeigen
+  setInterval(updateCountdowns, 1000); // Jede Sekunde aktualisieren
+</script>
+
+
+</body>
+</html>
